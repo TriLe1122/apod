@@ -5,15 +5,13 @@
         <img alt="logo" src="../assets/img/cw-logo.png" height="45" />
       </div>
     </router-link>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarText"
-      aria-controls="navbarText"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <div class="col-6 text-end p-2">
+      <input type="date" id="space-dawg" name="space-dawg" min="1995-06-16" max="" 
+@change="getNasaApodByDate()"
+        >
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+      aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
@@ -31,10 +29,28 @@
 </template>
 
 <script>
+import { ref } from "vue"
+import { nasaService } from "../services/NasaService.js"
+import Pop from "../utils/Pop.js"
 import Login from './Login.vue'
+
 export default {
   setup() {
-    return {}
+    const editable = ref({})
+    return {
+      editable,
+      async getNasaApodByDate() {
+        try {
+          let dateinput = window.event.target.value
+          console.log(dateinput);
+            await nasaService.getNasaApodByDate(dateinput)
+          } catch (error) {
+            console.error('[]',error)
+            Pop.error(error)
+          }
+      }
+
+    }
   },
   components: { Login }
 }
@@ -60,5 +76,4 @@ a:hover {
     height: 64px;
   }
 }
-
 </style>

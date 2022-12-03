@@ -7,7 +7,12 @@ class NasaService{
     const res = await nasaServer.get()
     console.log('getNasaApod', res.data);
     AppState.apod = new Apod(res.data)
+  }
 
+  async getNasaApodByDate(date) {
+    const res = await nasaServer.get('', { params: { date } })
+    // console.log(res.data);
+    AppState.apod = new Apod(res.data)
   }
 
 }

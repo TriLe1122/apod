@@ -2,7 +2,7 @@
   <header>
     <Navbar />
   </header>
-  <main>
+  <main :style="{ backgroundImage: `url(${apod?.hdurl})` }">
     <router-view />
   </main>
    <footer class="bg-dark text-light">
@@ -18,7 +18,8 @@ import Navbar from './components/Navbar.vue'
 export default {
   setup() {
     return {
-      appState: computed(() => AppState)
+      appState: computed(() => AppState),
+      apod: computed(() => AppState.apod),
     }
   },
   components: { Navbar }
