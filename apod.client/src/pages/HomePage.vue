@@ -3,6 +3,7 @@
   <p class="on-hover">{{apod?.explanation}}</p>
   <h1>{{apod?.title}}</h1>
   <h2>{{apod?.date}}</h2>
+  <p>Taken by {{apod?.copyright}}</p>
 </div>
 </template>
 
