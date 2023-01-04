@@ -1,8 +1,9 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black px-3">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex flex-column align-items-center">
-        <img alt="logo" src="../assets/img/cw-logo.png" height="45" />
+        <!-- <img alt="logo" src="../assets/img/cw-logo.png" height="45" /> -->
+        <i class="fa-solid fa-user-astronaut fs-1 ms-5 my-2"></i>
       </div>
     </router-link>
     <div class="col-6 text-end p-2">
