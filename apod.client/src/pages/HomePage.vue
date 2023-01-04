@@ -1,10 +1,14 @@
 <template>
-<div class="col-md-6 m-auto text-shadow mt-5">
-  <p class="on-hover">{{apod?.explanation}}</p>
-  <h1>{{apod?.title}}</h1>
-  <h2>{{apod?.date}}</h2>
-  <p>Taken by {{apod?.copyright}}</p>
-</div>
+  <section class="container">
+    <div class="row">
+      <div class="col-md-8 m-auto text-shadow mt-5">
+        <p class="on-hover">{{ apod?.explanation }}</p>
+        <h1 class="text-center">{{ apod?.title }}</h1>
+        <h2>{{ apod?.date }}</h2>
+        <p>Taken by {{ apod?.copyright }}</p>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>

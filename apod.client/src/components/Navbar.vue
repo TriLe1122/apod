@@ -3,7 +3,7 @@
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex flex-column align-items-center">
         <!-- <img alt="logo" src="../assets/img/cw-logo.png" height="45" /> -->
-        <i class="fa-solid fa-user-astronaut fs-1 ms-5 my-2"></i>
+        <i class="fa-solid fa-user-astronaut fs-1 ms-5 my-4"></i>
       </div>
     </router-link>
     <div class="col-6 text-end p-2">
