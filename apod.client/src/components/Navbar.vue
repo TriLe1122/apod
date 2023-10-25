@@ -6,9 +6,12 @@
         <i class="fa-solid fa-user-astronaut fs-1 ms-5 my-4"></i>
       </div>
     </router-link>
-    <button @click="handleSave()" class="">
-      <i class="fa-book fa-solid fs-1"></i>
+    <button @click="handleSave()" class="p-0 m-0 bg-transparent border-0">
+      <i class="fa-book fa-solid fs-1 text-light"></i>
     </button>
+    <button @click="getSavedDate()" class="p-0 m-0 bg-transparent border-0">
+        <i class="fa-book fa-solid fs-1 text-light"></i>
+      </button>
     <div class="col-6 text-end p-2">
       <form @submit.prevent="getNasaApodByDate()">
       <input type="date" id="space-dawg" name="space-dawg" min="1995-06-16" max="" v-model="selectedDate">
