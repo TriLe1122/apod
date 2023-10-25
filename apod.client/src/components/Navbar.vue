@@ -6,10 +6,14 @@
         <i class="fa-solid fa-user-astronaut fs-1 ms-5 my-4"></i>
       </div>
     </router-link>
+    <button @click="handleSave()" class="">
+      <i class="fa-book fa-solid fs-1"></i>
+    </button>
     <div class="col-6 text-end p-2">
-      <input type="date" id="space-dawg" name="space-dawg" min="1995-06-16" max="" 
-@change="getNasaApodByDate()"
-        >
+      <form @submit.prevent="getNasaApodByDate()">
+      <input type="date" id="space-dawg" name="space-dawg" min="1995-06-16" max="" v-model="selectedDate">
+      <button class="btn btn-warning" type="submit">Date</button>
+      </form>
     </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
       aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,32 +33,38 @@
   </nav>
 </template>
 
-<script>
-import { ref } from "vue"
+<script setup>
+
+
+import { ref, watchEffect } from "vue"
 import { nasaService } from "../services/NasaService.js"
 import Pop from "../utils/Pop.js"
 import Login from './Login.vue'
 
-export default {
-  setup() {
-    const editable = ref({})
-    return {
-      editable,
-      async getNasaApodByDate() {
+
+const selectedDate = ref(null)
+async function getNasaApodByDate() {
         try {
-          let dateinput = window.event.target.value
-          console.log(dateinput);
-            await nasaService.getNasaApodByDate(dateinput)
+          console.log(selectedDate.value)
+            await nasaService.getNasaApodByDate(selectedDate.value)
           } catch (error) {
             console.error('[]',error)
             Pop.error(error)
           }
-      }
-
-    }
-  },
-  components: { Login }
 }
+
+async function handleSave() {
+  try {
+     console.log("test")
+    } catch (error) {
+      console.error('[]',error)
+      Pop.error(error)
+    }
+}
+// watchEffect(() => {
+//   console.log(selectedDate.value)
+// })
+
 </script>
 
 <style scoped>
