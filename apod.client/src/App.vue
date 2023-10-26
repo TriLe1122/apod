@@ -33,7 +33,11 @@ export default {
 }
 
 main{
-  background-size: cover ;}
+ height: 100vh;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
 
 
 footer {
